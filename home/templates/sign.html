@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="{% static 'error.css '%}">
+    <style>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .signup-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 2rem;
+            animation: textPop 1.2s ease;
+        }
+
+        @keyframes textPop {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #74ebd5;
+            box-shadow: 0 0 10px rgba(116, 235, 213, 0.3);
+            outline: none;
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .signup-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .redirect {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .redirect a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .redirect a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form action="{% url 'sign-Extreme' %}" method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" class="input-field" placeholder="Email" required>
+            <input type="username" name="username" class="input-field" placeholder="Username" required>
+            <input type="password" name="password" class="input-field" placeholder="Password" required>
+            <input type="password" name="password2" class="input-field" placeholder="Confirm Password" required>
+            <input type="text" name="referral_code" class="input-field" placeholder="Referral Code (optional)">
+            <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+        <div class="redirect">
+            Already have an account? <a href="{% url 'login-Extreme' %}">Sign in</a>
+        </div>
+    </div>
+</body>
+</html>

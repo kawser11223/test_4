@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Page</title>
+  <link rel="stylesheet" href="{% static 'error.css '%}">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background: #07072b;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .fuck {
+      width: 90%;
+      text-align: center;
+    }
+
+    .back {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    
+
+    .input-box {
+      background: #121212;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #333;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 10px;
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .input-box::placeholder {
+      color: #e9e9e9;
+    }
+
+    .button {
+      width: 60%;
+      padding: 12px;
+      background: #fff;
+      color: #1e7fb8;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="fuck">
+    <div class="back">
+      {% if messages %}
+      <div>
+          {% for message in messages %}
+              <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                  {{ message }}
+              </div>
+          {% endfor %}
+      </div>
+      {% endif %}
+      <span>{{ task.title }}</span>
+     
+    </div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Verification</h2><br>
+            <div class="input-box">  
+                <input type="text" name="secret_code" placeholder="Enter Admin Secret Code" required> 
+            </div>
+            <button type="submit" class="button">Verify✅</button>
+        </form>
+    </div>
+    
+  </div>
+</body>
+</html>

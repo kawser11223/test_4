@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body{
+            width: 95%;
+            height: 95%;
+            background: no-repeat;
+            background-color: #73c1ea;
+        }
+        
+        .wall{
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 200px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .wall:focus{
+            border-color: #74ebd5;
+            box-shadow: 0 0 10px rgba(116, 235, 213, 0.3);
+        }
+
+        .div{
+            margin: 35px;
+        }
+
+        .button{
+            width: 65px;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover{
+            background-color: #d4b217;
+            transform: translateY(-3px);
+        }
+
+        .watch{
+            width: 100px;
+            padding:15px;
+            background-color: #dd6d23;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<!-- <body>
+   
+
+    
+    <div class="div">
+        <div>
+            {% for task in tasks %}
+           <a href="{% url 'complete-task' task.id %}"> <button class="watch">Watch</button></a>
+            {% endfor %}
+        </div><br>  
+    </div>
+
+</body> -->
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme</title>
+    <link rel="stylesheet" href="{% static 'dash.css '%}">
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="menu-toggle">☰</button>
+        <ul>
+            <li><a href="{% url 'dashbord-Extreme' %}" class="nav-btn"><span class="icon"></span>Dashboard</a></li>
+            <li><a href="{% url 'task-list' %}" class="nav-btn"><span class="icon"></span>Task</a></li>
+            <li><a href="{% url 'w-points' %}" class="nav-btn"><span class="icon"></span>Withdraw</a></li>
+            <li><a  href="{% url 'top-user' %}" class="nav-btn"><span class="icon"></span>Ledarbord</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <!-- <header>
+            <h1>Streaming Dashboard</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search music...">
+                <button>🔍</button>
+            </div>
+        </header> -->
+        <section class="content">
+            <h2>Extreme Task</h2>
+            <div class="div">
+                <div>
+                    {% for task in tasks %}
+                   <a href="{% url 'complete-task' task.id %}"> <button class="watch">Watch</button></a>
+                    {% endfor %}
+                </div><br>  
+            </div>
+        
+
+            <h2>Menu</h2>
+            <div class="grid-container">
+                <div class="song"><a href="{% url 'dashbord-Extreme' %}"><button class="play-btn"> Dashboard</button></a></div>
+                <div class="song"><a href="{% url 'task-list' %}"><button class="play-btn"> Task</button></a></div>
+                <div class="song"><a href="{% url 'w-points' %}"><button class="play-btn"> Withdraw</button></a></div>               
+                <div class="song"><a href="{% url 'top-user' %}"><button class="play-btn"> Ledarbord</button></a></div>
+            </div>   
+        </section>
+       
+    </div>
+    <script src="{% static 'copy.js' %}"></script>
+</body>
+</html>

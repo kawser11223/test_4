@@ -1,0 +1,55 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme</title>
+    <link rel="stylesheet" href="{% static 'dash.css '%}">
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="menu-toggle">☰</button>
+        <ul>
+            <li><a href="{% url 'dashbord-Extreme' %}" class="nav-btn"><span class="icon"></span>Dashboard</a></li>
+            <li><a href="{% url 'task-list' %}" class="nav-btn"><span class="icon"></span>Task</a></li>
+            <li><a href="{% url 'w-points' %}" class="nav-btn"><span class="icon"></span>Withdraw</a></li>
+            <li><a  href="{% url 'top-user' %}" class="nav-btn"><span class="icon"></span>Ledarbord</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <!-- <header>
+            <h1>Streaming Dashboard</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search music...">
+                <button>🔍</button>
+            </div>
+        </header> -->
+        <section class="content">
+            <h2>Extreme Dashbord</h2>
+            <div class="grid-container">
+                <div class="album">$:{{ truncated_points }}</div>
+                <div class="album">Refer:{{profile.referred_count }}</div>
+                <div class="album">
+                    <form data-copy=true>
+                        <input type="text" value="{{profile.referral_code }}" data-click-select-all />
+                        <input type="submit" value="Copy" />
+                    </form>
+                </div>
+            </div>
+
+            <h2>Menu</h2>
+            <div class="grid-container">
+                <div class="song"><a href="{% url 'dashbord-Extreme' %}"><button class="play-btn"> Dashboard</button></a></div>
+                <div class="song"><a href="{% url 'task-list' %}"><button class="play-btn"> Task</button></a></div>
+                <div class="song"><a href="{% url 'w-points' %}"><button class="play-btn"> Withdraw</button></a></div>               
+                <div class="song"><a href="{% url 'top-user' %}"><button class="play-btn"> Ledarbord</button></a></div>
+            </div>   
+        </section>
+       
+    </div>
+    <script src="{% static 'copy.js' %}"></script>
+</body>
+</html>

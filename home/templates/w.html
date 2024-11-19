@@ -1,0 +1,149 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'error.css '%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #647173;
+            font-family: Arial, sans-serif;
+        }
+        .box {
+            width: 300px;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 100px auto; /* Centered horizontally */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+        .withdrow {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .withdrow:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+        .mal {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .mal:focus {
+            border-color: #74ebe1;
+            box-shadow: 0 0 10px rgba(151, 163, 161, 0.3);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- {% if messages %}
+    <div>
+        {% for message in messages %}
+            <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="box">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="subtract_value"></label>
+            <input type="number" class="mal" name="subtract_value" id="subtract_value" min="10" step="0.1" required>
+            <input type="text" class="mal" name="address_value" id="subtract_value" required>
+            <button class="withdrow" type="submit">Withdraw</button>
+        </form>
+    </div> -->
+    
+   
+
+</body>
+</html>
+
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme</title>
+    <link rel="stylesheet" href="{% static 'dash.css '%}">
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="menu-toggle">☰</button>
+        <ul>
+            <li><a href="{% url 'dashbord-Extreme' %}" class="nav-btn"><span class="icon"></span>Dashboard</a></li>
+            <li><a href="{% url 'task-list' %}" class="nav-btn"><span class="icon"></span>Task</a></li>
+            <li><a href="{% url 'w-points' %}" class="nav-btn"><span class="icon"></span>Withdraw</a></li>
+            <li><a  href="{% url 'top-user' %}" class="nav-btn"><span class="icon"></span>Ledarbord</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <!-- <header>
+            <h1>Streaming Dashboard</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search music...">
+                <button>🔍</button>
+            </div>
+        </header> -->
+        <section class="content">
+            <h2>Extreme Withdraw</h2>
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        
+            <div class="box">
+                <form method="POST">
+                    {% csrf_token %}
+                    <label for="subtract_value"></label>
+                    <input type="number" class="mal" name="subtract_value" id="subtract_value" min="0" step="0.1" required>
+                    <input type="text" class="mal" name="address_value" id="subtract_value" required>
+                    <button class="withdrow" type="submit">Withdraw</button>
+                </form>
+            </div>
+           
+            <h2>Menu</h2>
+            <div class="grid-container">
+                <div class="song"><a href="{% url 'dashbord-Extreme' %}"><button class="play-btn"> Dashboard</button></a></div>
+                <div class="song"><a href="{% url 'task-list' %}"><button class="play-btn"> Task</button></a></div>
+                <div class="song"><a href="{% url 'w-points' %}"><button class="play-btn"> Withdraw</button></a></div>               
+                <div class="song"><a href="{% url 'top-user' %}"><button class="play-btn"> Ledarbord</button></a></div>
+            </div>   
+        </section>
+       
+    </div>
+    <script src="{% static 'copy.js' %}"></script>
+</body>
+</html>
