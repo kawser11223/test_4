@@ -1,0 +1,224 @@
+/* Basic Reset */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.sidebar {
+    background: linear-gradient(45deg, #4CAF50, #FF0000, #0000FF, #FFFFFF);
+    background-size: 800% 800%;
+    animation: gradientBG 10s ease infinite;
+    padding: 1rem;
+    min-width: 250px;
+    transition: transform 0.3s;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 1rem 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.sidebar a .icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1rem;
+    background: #202020;
+    border-left: 5px solid #4CAF50;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #4CAF50, #FF0000, #0000FF, #FFFFFF);
+    background-size: 800% 800%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background: #444;
+    color: white;
+}
+
+.search-bar button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.search-bar button:hover {
+    background: #3e8e41;
+    transform: scale(1.1);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.album, .song {
+    background: linear-gradient(45deg, #4CAF50, #FF0000, #0000FF, #FFFFFF);
+    background-size: 800% 800%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.album:hover, .song:hover {
+    transform: scale(1.1);
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    animation: rotate 5s linear infinite;
+}
+
+.play-btn:hover {
+    transform: scale(1.5) rotate(360deg);
+}
+
+.logout {
+    background: linear-gradient(45deg, #4CAF50, #FF0000, #0000FF, #FFFFFF);
+    background-size: 800% 800%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.logout:hover {
+    transform: scale(1.1);
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+} 
+
+
+
+
