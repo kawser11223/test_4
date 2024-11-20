@@ -82,7 +82,6 @@ WSGI_APPLICATION = 'web.wsgi.application'
 
 import environ
 
-
 env = environ.Env()
 environ.Env.read_env()  
 
@@ -96,6 +95,7 @@ DATABASES = {
         'PORT': env('db_Port'),
     }
 }
+
 
 # DATABASES = {
 #     'default': {
