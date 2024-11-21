@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.db.models import F
 from .models import Task, UserTask, Profile,User_Withdraw
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -175,8 +175,13 @@ def top_users(request):
 
 @login_required
 def dash(request):
-    profile = Profile.objects.get(user=request.user)  
-   
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        # Handle the case where the profile does not exist
+        return HttpResponse("Profile does not exist. Please contact support.", status=404)
+
+    # Truncate points to the first 4 characters
     truncated_points = str(profile.points)[:4]
 
     return render(request, 'dash.html', {
